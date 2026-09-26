@@ -21,7 +21,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ## 安装依赖
 
 ```bash
-cd ~/Robotics/task
+cd task
 uv sync
 ```
 
