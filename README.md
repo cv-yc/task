@@ -18,10 +18,15 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 装完后重开终端，用 `uv --version` 确认。
 
+## 进入项目目录
+
+所有命令都在项目目录下执行：
+```bash
+cd task    # 进入项目目录
+```
 ## 安装依赖
 
 ```bash
-cd task
 uv sync
 ```
 
@@ -43,7 +48,7 @@ uv run python example/GuessingGame.py
 bash scripts/run_game.sh
 ```
 
-游戏玩法：程序会随机生成一个数字，你输入猜测的数字，程序提示"大了"或"小了"，猜中即胜。
+游戏玩法：程序随机生成一个数字，你输入猜测的数字，程序提示"大了"或"小了"，猜中即胜。
 
 ## 运行测试
 
@@ -77,7 +82,7 @@ task/
 ├── src/
 │   └── task/
 │       ├── __init__.py
-│       └── calculate.py  # 计算器模块（加、减、乘、除、取整、取余、幂）
+│       └── calculate.py  # 计算器模块
 ├── tests/
 │   └── test_calculate.py # 计算器测试
 ├── pyproject.toml        # 项目配置
@@ -107,7 +112,8 @@ task/
 ```python
 from task import calculate
 
-calc = calculate.Calculator()
-print(calc.add(1, 2))       # 3
-print(calc.mul(2, 3))       # 6
+print(calculate.Calculator.add(1, 2))     # 3
+print(calculate.Calculator.sub(5, 3))     # 2
+print(calculate.Calculator.mul(2, 3))     # 6
+print(calculate.Calculator.pow(2, 3))     # 8
 ```
