@@ -21,9 +21,11 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ## 进入项目目录
 
 所有命令都在项目目录下执行：
+
 ```bash
 cd task    # 进入项目目录
 ```
+
 ## 安装依赖
 
 ```bash
@@ -35,20 +37,6 @@ uv sync
 ```bash
 bash scripts/setup_env.sh
 ```
-
-## 运行游戏示例
-
-```bash
-uv run python example/GuessingGame.py
-```
-
-或使用脚本：
-
-```bash
-bash scripts/run_game.sh
-```
-
-游戏玩法：程序随机生成一个数字，你输入猜测的数字，程序提示"大了"或"小了"，猜中即胜。
 
 ## 运行测试
 
@@ -74,11 +62,10 @@ bash scripts/check.sh
 ```text
 task/
 ├── example/
-│   └── GuessingGame.py   # 猜数字游戏示例
+│   └── use_calculate.py  # 计算器模块使用示例
 ├── scripts/
 │   ├── setup_env.sh      # 安装依赖（uv sync）
-│   ├── check.sh          # 运行测试（pytest）
-│   └── run_game.sh       # 运行猜数字游戏
+│   └── check.sh          # 运行测试（pytest）
 ├── src/
 │   └── task/
 │       ├── __init__.py
@@ -106,14 +93,19 @@ task/
 - `pow(a, b)`：幂运算（矩阵整数次幂、0 次幂为单位矩阵）
 
 支持数字与 `numpy` 矩阵混合运算，非法组合会抛出 `TypeError`。
+完整用法见 `example/use_calculate.py`。
 
-用法示例：
+## 运行示例
 
-```python
-from task import calculate
+```bash
+uv run python example/use_calculate.py
+```
 
-print(calculate.Calculator.add(1, 2))     # 3
-print(calculate.Calculator.sub(5, 3))     # 2
-print(calculate.Calculator.mul(2, 3))     # 6
-print(calculate.Calculator.pow(2, 3))     # 8
+输出：
+
+```
+3
+2
+6
+8
 ```
